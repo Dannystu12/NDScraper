@@ -22,12 +22,12 @@ class SPQMScraper:
         results = []
         entries = soup.find_all(id=re.compile('MAQA_Search_gvResults_ctl00__\d+'))
         for entry in entries:
-            heading = entry.find('a').text
+            heading = entry.find('a')
             body = entry.find(id=re.compile('MAQA_Search_gvResults_ctl00_ctl\d+_pnl(Motion|Question)(?<!Header)$'))
             if body == None:
                 continue
-            body = body.text
-            link = self.entry_link.format(re.search('\w{3}-\w{5}', heading).group())
+            # body = body.text
+            link = self.entry_link.format(re.search('\w{3}-\w{5}', heading.text).group())
             entry_obj = Entry(heading, body, link)
             results.append(entry_obj)
         return results
