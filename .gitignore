@@ -2,6 +2,7 @@
 keywords.csv
 keywords.txt
 spqm_output.html
+.idea
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
