@@ -2,8 +2,6 @@
 keywords.csv
 keywords.txt
 spqm_output.html
-.idea
-.idea2
 ### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -110,3 +108,4 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+/.idea/
