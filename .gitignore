@@ -1,5 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-keywords_test2.csv
+inputs/keywords_test.csv
 keywords.txt
 spqm_output.html
 ### Python template
@@ -109,3 +109,4 @@ venv.bak/
 .mypy_cache/
 
 /.idea/
+/inputs/keywords_test.csv
