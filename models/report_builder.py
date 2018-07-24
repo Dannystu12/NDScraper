@@ -19,11 +19,12 @@ class ReportBuilder:
                 head_html = str(entry.heading.text) #"<h2>{}</h2>".format(entry.heading)
                 body_html = str(entry.body) #"<p>{}</p>".format(entry.body)
                 link_html = "<div><a href={}>{}</a></div>".format(entry.link, entry.link.split('=')[-1])
-                main_body_html += self.highlight_keywords("<h2>{}</h2>".format(head_html), keywords)
-                main_body_html += self.highlight_keywords(body_html, keywords)
+                main_body_html += "<h2>{}</h2>".format(head_html)
+                main_body_html += body_html
                 main_body_html += link_html
 
             html = html.format(main_body_html)
+            html = self.highlight_keywords(html, keywords)
             output_file.write(html)
 
     def highlight_keywords(self, html, keywords):
