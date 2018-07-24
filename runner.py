@@ -4,7 +4,7 @@ from models.spqm_scraper import SPQMScraper
 from models.report_builder import ReportBuilder
 
 cwd = os.getcwd()
-KEYWORD_PATH = os.path.join(cwd, 'inputs', 'keywords_test.csv')
+KEYWORD_PATH = os.path.join(cwd, 'inputs', 'keywords_test2.csv')
 DRIVER_PATH = os.path.join(cwd, 'venv', 'chromedriver')
 SPQM_OUTPUT_PATH = os.path.join(cwd, 'outputs', 'spqm_output.html')
 SPQM_URL = 'http://www.parliament.scot/parliamentarybusiness/28877.aspx?SearchType=Advance&Keyword=alcohol&ExactPhrase=True&DateTo=23/07/2018%2023:59:59&SortBy=DateSubmitted&Answers=All&SearchFor=All&ResultsPerPage=100'
