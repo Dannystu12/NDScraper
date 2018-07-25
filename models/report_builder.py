@@ -25,13 +25,14 @@ class ReportBuilder:
                 entry_html = '<div class="entry">{}</div>'
                 head_html = entry.heading
                 body_html = "<p>{}</p>".format(entry.body)
-                link_html = "<a href={}>{}</a>".format(entry.link, entry.link.split('=')[-1].strip())
-                entry_html = entry_html.format("<h2>{}</h2>".format(link_html + head_html) + body_html)
+                #ref = entry.link.split('=')[-1].strip()
+                entry_html = entry_html.format("<h2>{}</h2>".format(head_html) + body_html)
                 main_body_html += entry_html
 
             if should_highlight:
                 main_body_html = self.highlight_keywords(main_body_html, keywords)
 
+            main_body_html = self.parse_links(main_body_html)
             main_body_html = self.replace_words(main_body_html, words_to_replace)
             html = html.format(body=main_body_html)
             soup = BeautifulSoup(html, 'lxml')
@@ -52,4 +53,9 @@ class ReportBuilder:
             if word_to_replace.is_bold:
                 replacement = "<strong>{}</strong>".format(replacement)
             result = re.sub(r'{}'.format(word_to_replace.word), replacement, result, flags=re.I)
+        return result
+
+    def parse_links(self, html):
+        result = html
+        result = re.sub(r'(\w\d\w-\d{5})', r'<a href="http://www.parliament.scot/parliamentarybusiness/28877.aspx?SearchType=Advance&ReferenceNumbers=\1">\1</a>',result)
         return result
